@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Punch Bag Game</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./punchBag.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="bag" :class="{burst: ended}"></div>
+
+        <div id="bag-health">
+            <div v-bind:style="{width:health + '%'}" :class="{warning:aboutToBusrst}"></div>
+        </div>
+
+        <div id="control">
+            <button @click="punch()" v-if="!ended">Punch</button>
+            <button @click="restart()">Restart</button>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                health: 100,
+                ended: false,
+                aboutToBusrst: false
+            },
+            methods: {
+                punch() {
+                    this.health -= 10;
+                    if (this.health == 10) {
+                        this.aboutToBusrst = true
+                    }
+                    if (this.health <= 0) {
+                        this.ended = true;
+                    }
+                },
+                restart() {
+                    this.health = 100;
+                    this.ended = false;
+                    this.aboutToBusrst = false;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

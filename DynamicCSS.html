@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic CSS</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./dynamic.css">
+</head>
+
+<body>
+    <div id="app">
+        <h2>Dynamic CSS</h2>
+        <div @click="available = !available" v-bind:class="{available:true}">
+            <span>User</span>
+        </div>
+    </div>
+</body>
+
+</html>

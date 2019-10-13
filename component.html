@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Component</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app-one">
+        <greeting />
+    </div>
+
+    <div id="app-two">
+
+    </div>
+
+    <script src="./component.js"></script>
+</body>
+<script>
+Vue.component('greeting', {
+    template: '<p> Hey, there I am {{name}}, <button @click="changeName()"> Change name </button> </p>',
+    data() {
+        return {
+            name: 'Ibrahim'
+        }
+
+    },
+    methods: {
+        changeName() {
+            this.name = 'AyBee';
+        }
+    }
+});
+new Vue({
+    el: '#app-one',
+    data: {
+
+    }
+});
+
+new Vue({
+    el: '#app-two',
+    data: {
+
+    }
+});
+</script>
+
+</html>
